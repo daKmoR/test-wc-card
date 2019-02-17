@@ -1,6 +1,6 @@
 {
   "name": "test-wc-card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent test-wc-card following open-wc recommendations",
   "author": "test-wc-card",
   "homepage": "https://github.com/daKmoR/test-wc-card",
@@ -17,6 +17,9 @@
       "git add"
     ]
   },
+  "keywords": [
+    "lit-element-2.x"
+  ],
   "scripts": {
     "start": "owc-dev-server -o demo",
     "lint": "npm run lint:eslint && npm run lint:prettier",
