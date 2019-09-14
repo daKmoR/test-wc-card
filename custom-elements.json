@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "tags": [
+    {
+      "name": "test-wc-card",
+      "attributes": [
+        {
+          "name": "header",
+          "type": "string"
+        },
+        {
+          "name": "side",
+          "type": "string",
+          "values": [{ "name": "A" }, { "name": "B" }]
+        }
+      ],
+      "properties": [
+        {
+          "name": "header",
+          "type": "string",
+          "attribute": "header"
+        },
+        {
+          "name": "side",
+          "type": "string",
+          "attribute": "side",
+          "reflect": true,
+          "values": [{ "name": "A" }, { "name": "B" }]
+        }
+      ],
+      "events": [],
+      "slots": []
+    }
+  ]
+}

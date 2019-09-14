@@ -1,3 +1,1 @@
-import TestWcCard from "./src/TestWcCard";
-
-export default TestWcCard;
+export { TestWcCard } from './src/TestWcCard.js';

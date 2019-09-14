@@ -1,6 +1,6 @@
 {
   "name": "test-wc-card",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "Webcomponent test-wc-card following open-wc recommendations",
   "author": "test-wc-card",
   "homepage": "https://github.com/daKmoR/test-wc-card",
@@ -22,34 +22,42 @@
     "lit-element-2.x"
   ],
   "scripts": {
-    "start": "owc-dev-server -o demo",
+    "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
+    "start:compatibility": "es-dev-server --app-index demo/index.html --compatibility all --node-resolve --open --watch",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
-    "lint:eslint": "eslint --ext .js,.html .",
-    "format:eslint": "eslint --ext .js,.html . --fix",
-    "lint:prettier": "prettier '**/*.js' --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
-    "format:prettier": "prettier '**/*.js' --write",
-    "test": "karma start",
-    "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:es5": "karma start karma.es5.config.js",
-    "test:es5:watch": "karma start karma.es5.config.js --auto-watch=true --single-run=false",
-    "test:es5:bs": "karma start karma.es5.bs.config.js",
-    "site:build": "npm run storybook:build",
-    "storybook:build": "build-storybook -o _site",
-    "storybook:start": "start-storybook -p 9001"
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "test": "karma start --coverage",
+    "test:update-snapshots": "karma start --update-snapshots",
+    "test:prune-snapshots": "karma start --prune-snapshots",
+    "test:compatibility": "karma start --compatibility all --coverage",
+    "test:compatibility:watch": "karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.0",
-    "@open-wc/eslint-config": "^0.3.0",
-    "@open-wc/prettier-config": "^0.1.0",
-    "@open-wc/storybook": "^0.2.0",
-    "@open-wc/testing": "^0.9.0",
-    "@open-wc/testing-karma": "^0.4.0",
-    "@open-wc/testing-karma-bs": "^0.2.0",
+    "@open-wc/eslint-config": "^1.0.0",
+    "@open-wc/prettier-config": "^0.1.10",
+    "@open-wc/testing": "^2.0.0",
+    "@open-wc/testing-karma": "^3.0.0",
+    "es-dev-server": "^1.5.0",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
-    "owc-dev-server": "^0.1.5",
+    "tsc": "^1.20150623.0",
     "webpack-merge": "^4.1.5"
+  },
+  "main": "index.js",
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": "@open-wc/prettier-config",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

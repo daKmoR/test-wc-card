@@ -28,7 +28,7 @@ npm run test:bs
 
 ## Demoing using storybook (if applied by author)
 ```bash
-npm run storybook:start
+npm run storybook
 ```
 
 ## Linting (if applied by author)

@@ -12,16 +12,9 @@
 ## testing
 /coverage/
 
-## bower
-/bower_components*/
-/bower-*.json
-
 ## temp folders
 /.tmp/
 
-# build hp
+# build
 /_site/
-
-## we don't want lock files for now
-yarn.lock
-package-lock.json
+/dist/
