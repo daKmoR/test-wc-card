@@ -21,6 +21,10 @@
           "attribute": "header"
         },
         {
+          "name": "modelValue",
+          "type": "Object"
+        },
+        {
           "name": "side",
           "type": "string",
           "attribute": "side",
